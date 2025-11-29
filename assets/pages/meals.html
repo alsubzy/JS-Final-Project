@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="so">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Health Planner — Meals</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="/assets/images/logo.png" alt="Health Planner Logo" class="logo" />
+        <div class="brand-text">
+          <h1>Health Planner</h1>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="meals.html" class="nav-link active">Meals</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle3" class="btn ghost">Toggle</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="meals-controls form-inline">
+        <select id="mealCategory">
+          <option value="">Any</option>
+          <option>Beef</option>
+          <option>Chicken</option>
+          <option>Vegetarian</option>
+          <option>Seafood</option>
+        </select>
+        <button id="getMealPlan" class="btn">Get Meals</button>
+      </div>
+
+      <div id="mealsGrid" class="meals-grid"></div>
+      <div id="mealsError" class="muted" style="display:none"></div>
+    </section>
+
+    <section class="card">
+      <h3>Quick tip</h3>
+      <p id="randomTip" class="muted">Stay consistent — small steps win.</p>
+      <div class="card-actions">
+        <button id="getTip" class="btn ghost">Another tip</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© <span id="year3"></span> Health Planner</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script>
+    // Meals page interactions (uses global api)
+    (function () {
+      const mealsGrid = document.getElementById('mealsGrid');
+      const getMealPlanBtn = document.getElementById('getMealPlan');
+      const mealsError = document.getElementById('mealsError');
+      const categorySelect = document.getElementById('mealCategory');
+      const tipBtn = document.getElementById('getTip');
+      const tipEl = document.getElementById('randomTip');
+
+      const healthTips = [
+        "Aim for 7–9 hours of sleep.",
+        "Drink a glass of water when you wake up.",
+        "Take a short walk after meals.",
+        "Include protein in breakfast.",
+        "Stretch for 5 minutes every morning."
+      ];
+
+      function showTip() {
+        tipEl.textContent = healthTips[Math.floor(Math.random() * healthTips.length)];
+      }
+
+      async function loadMealPlan() {
+        mealsGrid.innerHTML = '<p class="muted">Loading meals…</p>';
+        mealsError.style.display = 'none';
+        try {
+          const cat = categorySelect.value;
+          const meals = await api.getRandomMeals(3, cat);
+          mealsGrid.innerHTML = '';
+          if (!meals || meals.length === 0) {
+            mealsGrid.innerHTML = '<p class="muted">No meals found.</p>';
+            return;
+          }
+          meals.forEach(m => {
+            const div = document.createElement('div');
+            div.className = 'meal-card card';
+            div.innerHTML = `
+              <img src="${m.strMealThumb}" alt="${m.strMeal}">
+              <div class="meal-body">
+                <h4>${m.strMeal}</h4>
+                <p class="muted small">${m.strCategory || ''} • ${m.strArea || ''}</p>
+                <details>
+                  <summary>Ingredients & Recipe</summary>
+                  <div class="recipe small muted">
+                    <ul>${api.extractIngredientsHtml(m)}</ul>
+                    <p>${m.strInstructions ? m.strInstructions.substring(0, 400) + '...' : ''}</p>
+                  </div>
+                </details>
+              </div>
+            `;
+            mealsGrid.appendChild(div);
+          });
+        } catch (err) {
+          console.error(err);
+          mealsGrid.innerHTML = '';
+          mealsError.style.display = 'block';
+          mealsError.textContent = 'Unable to fetch meals. Please check your connection.';
+        }
+      }
+
+      getMealPlanBtn.addEventListener('click', loadMealPlan);
+      tipBtn.addEventListener('click', showTip);
+
+      // initial tip
+      showTip();
+    })();
+  </script>
+</body>
+</html>

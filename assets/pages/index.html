@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="so">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Health Planner — Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="/assets/images/logo.png" alt="Health Planner Logo" class="logo" />
+        <div class="brand-text">
+          <h1>Health Planner</h1>
+          <p class="tagline">Plan better — feel better</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="meals.html" class="nav-link">Meals</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="btn ghost">Toggle</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero card clean-grid">
+      <div class="hero-left">
+        <h2 class="hero-title">Cunto Wacan iyo  Caafimaad .</h2>
+        <p class="muted">Track water, sleep, steps and mood. Get meal suggestions and keep daily logs — all private on your device.</p>
+
+        <div class="quick-row">
+          <div class="card small-card">
+            <h3>BMI</h3>
+            <form id="bmiForm" class="form-inline">
+              <input type="number" id="weight" placeholder="Weight (kg)" min="1" required />
+              <input type="number" id="height" placeholder="Height (cm)" min="1" required />
+              <button class="btn" type="submit">Calc</button>
+            </form>
+            <p id="bmiResult" class="muted small">No saved BMI yet.</p>
+          </div>
+
+          <div class="card small-card">
+            <h3>Today</h3>
+            <ul class="stats-list">
+              <li><strong id="todayWater">0</strong> glasses</li>
+              <li><strong id="todaySleep">0</strong> hrs</li>
+              <li>Mood: <span id="todayMood">—</span></li>
+            </ul>
+            <div class="card-actions">
+              <a href="dashboard.html" class="btn ghost small">Open Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a href="dashboard.html" class="btn">Go to Dashboard</a>
+          <a href="meals.html" class="btn ghost">Meal Plans</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <img src="/assets/images/placeholder-hero.jpg" alt="Healthy lifestyle" class="hero-image" />
+      </div>
+    </section>
+
+    <section class="features grid-3">
+      <div class="feature card">
+        <h4>Water Tracker</h4>
+        <p class="muted">Add glasses fast, view progress and set your daily target.</p>
+      </div>
+      <div class="feature card">
+        <h4>Meal Suggestions</h4>
+        <p class="muted">Curated meal ideas with images and ingredients.</p>
+      </div>
+      <div class="feature card">
+        <h4>Daily Logs</h4>
+        <p class="muted">Private notes and mood tracking stored locally.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© <span id="year"></span> Health Planner — Local-first</p>
+      <button id="resetData" class="btn link">Reset data</button>
+    </div>
+  </footer>
+
+  <script src="/assets/js/api.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="so">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Health Planner — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="/assets/images/logo.png" alt="Health Planner Logo" class="logo" />
+        <div class="brand-text">
+          <h1>Health Planner</h1>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="meals.html" class="nav-link">Meals</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle2" class="btn ghost">Toggle</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid-3 top-row">
+      <div class="card">
+        <h3>Water</h3>
+        <p class="muted">Today's glasses</p>
+        <div class="water-visual">
+          <div class="water-num"><span id="waterCount">0</span>/8</div>
+          <div class="progress-bar"><div id="waterProgress" class="progress-fill"></div></div>
+        </div>
+        <div class="card-actions">
+          <button id="addWater" class="btn small">+ Glass</button>
+          <button id="subWater" class="btn small ghost">-</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Sleep</h3>
+        <p class="muted">Last night</p>
+        <div class="form-inline">
+          <input type="number" id="sleepInput" placeholder="Hours" min="0" step="0.5">
+          <button id="saveSleep" class="btn small">Save</button>
+        </div>
+        <p class="muted">Saved: <strong id="sleepHours">0</strong> hrs</p>
+      </div>
+
+      <div class="card">
+        <h3>Steps</h3>
+        <p class="muted">Manual entry</p>
+        <div class="form-inline">
+          <input type="number" id="stepsInput" placeholder="Steps" min="0">
+          <button id="saveSteps" class="btn small">Save</button>
+        </div>
+        <p class="muted">Saved: <strong id="stepsCount">0</strong></p>
+      </div>
+    </section>
+
+    <section class="grid-2 mid-row">
+      <div class="card">
+        <h3>Mood</h3>
+        <div class="mood-grid">
+          <button class="mood-btn" data-mood="happy">😊</button>
+          <button class="mood-btn" data-mood="content">🙂</button>
+          <button class="mood-btn" data-mood="neutral">😐</button>
+          <button class="mood-btn" data-mood="sad">☹️</button>
+        </div>
+        <p class="muted">Today's mood: <strong id="currentMood">—</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Daily Logs</h3>
+        <form id="logForm">
+          <textarea id="logText" rows="3" placeholder="Write a quick note..."></textarea>
+          <div class="card-actions">
+            <button class="btn">Add</button>
+            <button id="clearLogs" type="button" class="btn ghost">Clear</button>
+          </div>
+        </form>
+        <ul id="logsList" class="logs-list"></ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Weekly overview</h3>
+      <div id="weeklyGrid" class="weekly-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© <span id="year2"></span> Health Planner</p>
+      <button id="resetData2" class="btn link">Reset data</button>
+    </div>
+  </footer>
+
+  <script src="/assets/js/api.js"></script>
+  <script src="/assets/js/dashboard.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
