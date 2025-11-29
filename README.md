@@ -13,6 +13,33 @@ It provides essential daily health management tools including BMI calculation, w
 The app uses **JavaScript, Local Storage, Fetch API, and Responsive UI techniques** to deliver a smooth, premium user experience.
 ---
 
+Problem This App Solves : 
+
+Many people struggle to maintain consistent healthy habits due to:
+
+❌ Disorganized routines
+❌ No tracking for water, steps, or sleep
+❌ Lack of personalized health insights
+❌ Difficulty finding healthy meals
+❌ No reminders to stay consistent
+
+Health Planner solves these issues by putting all health essentials in one simple, beautiful dashboard.
+
+ Solution
+
+The app offers a complete set of daily wellness tools:
+
+✔ BMI calculator
+✔ Water tracking
+✔ Sleep logs
+✔ Mood tracking
+✔ Daily/weekly dashboard
+✔ Meal planning powered by a Nutrition API
+✔ Local storage to save all user health data
+✔ Light/Dark mode for a personalized experience
+
+Everything is accessible, fast, and easy to use.
+
 #  **Features**
 
 ###  **1. Home Page**
