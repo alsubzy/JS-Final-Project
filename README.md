@@ -115,14 +115,15 @@ The app includes:
       app.js  
       dashboard.js  
       api.js  
-   /images  
-   
-
-/pages  
+   /images
+  /pages  
    index.html  
    dashboard.html  
    meals.html  
+   
 
+
+screenshots
 README.md  
 ```
 
