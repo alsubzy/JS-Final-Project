@@ -1,11 +1,11 @@
 
-# 🧠 **Health Planner – Complete Web App**
+#  **Health Planner – Complete Web App**
 
 A modern, minimalist, and user-friendly Health Planner built using **pure JavaScript**, designed to help users track their daily health routines and improve well-being through simple, intuitive features.
 
 ---
 
-# 📌 **Overview**
+#  **Overview**
 
 **Health Planner** is a lightweight, fast, and fully responsive health-tracking web application.
 It provides essential daily health management tools including BMI calculation, water intake tracking, sleep tracking, mood logging, and meal plan generation using an external API.
@@ -13,16 +13,16 @@ It provides essential daily health management tools including BMI calculation, w
 The app uses **JavaScript, Local Storage, Fetch API, and Responsive UI techniques** to deliver a smooth, premium user experience.
 ---
 
-# ✨ **Features**
+#  **Features**
 
-### ✅ **1. Home Page**
+###  **1. Home Page**
 
 * Overview of the app
 * Quick access cards
 * BMI calculator
 * Today’s stats summary
 
-### ✅ **2. Dashboard Page**
+###  **2. Dashboard Page**
 
 * Daily/weekly progress
 * Water intake tracker
@@ -32,7 +32,7 @@ The app uses **JavaScript, Local Storage, Fetch API, and Responsive UI technique
 * Saved data displayed from Local Storage
 * Reset button
 
-### ✅ **3. Meals Page**
+###  **3. Meals Page**
 
 * Fetches meal suggestions from TheMealDB API
 * Shows:
@@ -43,7 +43,7 @@ The app uses **JavaScript, Local Storage, Fetch API, and Responsive UI technique
   * Ingredients
 * Includes loading state + error handling
 
-### ✅ **4. Local Storage Integration**
+###  **4. Local Storage Integration**
 
 App saves automatically:
 
@@ -53,7 +53,7 @@ App saves automatically:
 * Mood
 * Light/Dark theme
 
-### ✅ **5. Responsive UI**
+###  **5. Responsive UI**
 
 Built with:
 
@@ -83,7 +83,7 @@ UI supports all screen sizes: phone, tablet, laptop.
 
 ### **TheMealDB – Meal Suggestions API**
 
-**Endpoint Example:**
+**Endpoint:**
 `https://www.themealdb.com/api/json/v1/1/random.php`
 
 **Returns:**
@@ -128,7 +128,7 @@ README.md
 
 ---
 
-# ▶️ **How to Run the Project**
+#  **How to Run the Project**
 
 1. Download the project folder
 2. Open any of the pages in a browser
